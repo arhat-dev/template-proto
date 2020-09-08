@@ -58,7 +58,7 @@ _install_tools_go() {
 
 _install_tools_c() {
   if ! command -v pipenv; then
-    pip3 install pipenv
+    echo "please install pipenv first, ref: https://docs.pipenv.org/install/#installing-pipenv"
   fi
 
   if [ ! -d build/nanopb ]; then

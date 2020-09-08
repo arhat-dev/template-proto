@@ -7,6 +7,3 @@
 #endif
 
 PB_BIND(template_Foo, template_Foo, AUTO)
-
-
-

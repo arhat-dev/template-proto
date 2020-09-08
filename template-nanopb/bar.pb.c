@@ -7,7 +7,3 @@
 #endif
 
 PB_BIND(template_Bar, template_Bar, AUTO)
-
-
-
-
