@@ -57,7 +57,15 @@ _install_tools_go() {
 }
 
 _install_tools_c() {
-  git clone --depth 1 -b 0.4.2 https://github.com/nanopb/nanopb.git build/nanopb
+  if ! command -v pipenv; then
+    pip3 install pipenv
+  fi
+
+  if [ ! -d build/nanopb ]; then
+    git clone --depth 1 -b 0.4.2 https://github.com/nanopb/nanopb.git build/nanopb
+  fi
+
+  pipenv install --deploy
 }
 
 CODE_LANG=$(printf "%s" "$@" | cut -d. -f3)

@@ -48,7 +48,8 @@ _do_gen_proto_go() {
 
 _do_gen_proto_c() {
   # shellcheck disable=SC2086
-  python3 build/nanopb/generator/nanopb_generator.py \
+  pipenv run \
+  python build/nanopb/generator/nanopb_generator.py \
     --no-timestamp \
     --output-dir ./template-nanopb \
     -I"./src" \
