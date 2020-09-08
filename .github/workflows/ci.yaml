@@ -1,0 +1,73 @@
+name: CI
+
+# yamllint disable-line rule:truthy
+on:
+  check_run:
+    types:
+    - rerequested
+    - requested_action
+  pull_request:
+    branches:
+    - master
+  push:
+    branches:
+    - master
+    tags:
+    - v*
+
+env:
+  GO111MODULE: "on"
+
+jobs:
+  stylecheck:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-go@v2
+      with:
+        go-version: 1.14.x
+    - name: Ensure tidy gomod
+      run: |
+        go mod download -x
+        go mod tidy
+        if ! git diff --exit-code
+        then
+          echo "go mod not tidy"
+          exit 1
+        fi
+    - name: Lint
+      run: |
+        make lint.all
+
+    - name: Install Protoc
+      uses: arduino/setup-protoc@v1
+      with:
+        # yamllint disable-line rule:quoted-strings
+        version: "3.13.0"
+    - name: Ensure generated protos updated
+      run: |
+        make install.proto.all
+        make gen.proto.all
+        if ! git diff --exit-code; then
+          echo "proto not updated"
+          exit 1
+        fi
+
+  unit-tests:
+    needs:
+    - stylecheck
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/setup-go@v2
+      with:
+        go-version: 1.14.x
+    - uses: actions/checkout@v2
+    - name: Test Protos
+      run: |
+        make test.all
+
+    - name: Report Test Coverage
+      uses: codecov/codecov-action@v1
+      # with:
+      #   token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+      #   fail_ci_if_error: true # optional (default = false)
