@@ -34,7 +34,7 @@ fix_pb_gen_json_name() {
 }
 
 _do_gen_proto_go() {
-  rm templategopb/*.pb.go
+  rm templategopb/*.pb.go || true
   # shellcheck disable=SC2086
   protoc \
     -I"${GOPATH}/src" \
@@ -48,7 +48,7 @@ _do_gen_proto_go() {
 }
 
 _do_gen_proto_c() {
-  rm templatenanopb/*.pb.c templatenanopb/*.pb.h
+  rm templatenanopb/*.pb.c templatenanopb/*.pb.h || true
   # shellcheck disable=SC2086
   pipenv run \
   python build/nanopb/generator/nanopb_generator.py \
