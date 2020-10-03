@@ -13,6 +13,10 @@ Template protocol repo
 1. Update `*.proto` in `src` directory
 1. Generate protobuf files with `make gen.proto.all`
 
+## TODO
+
+1. Support rust proto gen with [`pb-jelly`](https://github.com/dropbox/pb-jelly)
+
 ## License
 
 ```txt

@@ -15,9 +15,16 @@
 gen.proto.go:
 	sh scripts/proto.sh $@
 
+gen.proto.python:
+	sh scripts/proto.sh $@
+
 gen.proto.c:
+	sh scripts/proto.sh $@
+
+gen.proto.rust:
 	sh scripts/proto.sh $@
 
 gen.proto.all: \
 	gen.proto.go \
+	gen.proto.python \
 	gen.proto.c

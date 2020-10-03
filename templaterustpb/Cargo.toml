@@ -1,0 +1,13 @@
+[package]
+name = "templaterustpb"
+version = "0.0.1"
+authors = ["Arhat Developers <dev@arhat.dev>"]
+edition = "2018"
+publish = false
+
+[lib]
+name = "proto"
+path = "./"
+
+[dependencies]
+pb-jelly-gen = "0.0.3"

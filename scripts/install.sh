@@ -56,17 +56,32 @@ _install_tools_go() {
   cd -
 }
 
-_install_tools_c() {
+_install_tools_python() {
   if ! command -v pipenv; then
     echo "please install pipenv first, ref: https://docs.pipenv.org/install/#installing-pipenv"
     exit 1
   fi
 
+  pipenv install --dev
+}
+
+_install_tools_c() {
+  _install_tools_python
+
   if [ ! -d build/nanopb ]; then
     git clone --depth 1 -b 0.4.2 https://github.com/nanopb/nanopb.git build/nanopb
   fi
+}
 
-  pipenv install --deploy
+_install_tools_rust() {
+  _install_tools_python
+
+  if [ ! -d build/pb-jelly ]; then
+    git clone --depth 1 -b master https://github.com/dropbox/pb-jelly build/pb-jelly
+    cd build/pb-jelly
+    git checkout dd596318b974b5a7540b0e1a1553747a9ae8fc1a
+    cd -
+  fi
 }
 
 CODE_LANG=$(printf "%s" "$@" | cut -d. -f3)

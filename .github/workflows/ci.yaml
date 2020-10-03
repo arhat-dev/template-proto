@@ -23,16 +23,35 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-python@v2
+    
+    - name: Install python3.8
+      uses: actions/setup-python@v2
       with:
         python-version: "3.8"
         architecture: x64
-    - uses: dschep/install-pipenv-action@v1
+
+    - name: Install pipenv
+      uses: dschep/install-pipenv-action@v1
       with:
         version: "2020.8.13" # yamllint disable-line rule:quoted-strings
-    - uses: actions/setup-go@v2
+
+    - name: Install rust stable
+      uses: actions-rs/toolchain@v1
+      with:
+        profile: minimal
+        toolchain: stable
+        override: true
+
+    - name: Install go1.14
+      uses: actions/setup-go@v2
       with:
         go-version: 1.14.x
+
+    - name: Install Protoc
+      uses: arduino/setup-protoc@v1
+      with:
+        version: "3.13.0" # yamllint disable-line rule:quoted-strings
+
     - name: Ensure tidy gomod
       run: |
         go mod download -x
@@ -42,14 +61,10 @@ jobs:
           echo "go mod not tidy"
           exit 1
         fi
+
     - name: Lint
       run: |
         make lint.all
-
-    - name: Install Protoc
-      uses: arduino/setup-protoc@v1
-      with:
-        version: "3.13.0" # yamllint disable-line rule:quoted-strings
 
     - name: Ensure generated protos updated
       run: |

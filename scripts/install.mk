@@ -15,9 +15,16 @@
 install.proto.go:
 	sh scripts/install.sh $@
 
+install.proto.python:
+	sh scripts/install.sh $@
+
 install.proto.c:
+	sh scripts/install.sh $@
+
+install.proto.rust:
 	sh scripts/install.sh $@
 
 install.proto.all: \
 	install.proto.go \
+	install.proto.python \
 	install.proto.c
