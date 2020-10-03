@@ -5,6 +5,9 @@ verify_ssl = true
 
 [dev-packages]
 grpcio-tools = "1.0.0"
+pytest = "6.1.1"
+flake8 = "3.8.4"
+pytest-cov = "2.10.1"
 
 [packages]
 grpcio = "1.32.0"

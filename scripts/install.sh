@@ -62,7 +62,7 @@ _install_tools_python() {
     exit 1
   fi
 
-  pipenv install --dev
+  pipenv install --dev --deploy
 }
 
 _install_tools_c() {

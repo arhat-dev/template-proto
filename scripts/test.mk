@@ -15,19 +15,22 @@
 test.go:
 	GOOS=$(shell go env GOHOSTOS) GOARCH=$(shell go env GOHOSTARCH) CGO_ENABLED=1 \
 	go test -mod=readonly -v -failfast -covermode=atomic -race -cpu 1,2,4 \
-	-coverprofile=coverage.pkg.txt -coverpkg=./templategopb/... ./templategopb/...
+	-coverprofile=coverage.go.txt -coverpkg=./templategopb/... ./templategopb/...
 
 test.python:
-	# TODO: add tests for python protobuf files
-	:
+	pipenv run pytest \
+		--strict -vvl \
+		--cov=templatepythonpb \
+		--cov-report=term-missing \
+		templatepythonpb/test \
+		|| code=$$?; if [ $$code != 5 ]; then echo "exit code: $$code"; exit $$code; fi
 
 test.c:
 	# TODO: add tests for c protobuf files
 	:
 
 test.rust:
-	# TODO: add tests for rust protobuf files
-	:
+	cargo test
 
 test.all: \
 	test.go \

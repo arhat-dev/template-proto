@@ -24,6 +24,9 @@ lint.shell:
 lint.go:
 	${RUN_LINTER} golangci/golangci-lint:v1.30.0 golangci-lint run --fix
 
+lint.python:
+	pipenv run flake8 templatepythonpb --exclude=*_pb*.py
+
 lint.yaml:
 	${RUN_LINTER} arhatdev/yamllint:latest yamllint -c .yaml-lint.yml .
 
@@ -31,4 +34,5 @@ lint.all: \
 	lint.file \
 	lint.shell \
 	lint.go \
+	lint.python \
 	lint.yaml
