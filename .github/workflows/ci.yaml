@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    
+
     - name: Install python3.8
       uses: actions/setup-python@v2
       with:
@@ -75,7 +75,7 @@ jobs:
     - name: Lint
       run: |
         make lint.all
-    
+
     # test requires python environment so do it after `make install.proto.all`
     - name: Test
       run: |

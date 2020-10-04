@@ -5,7 +5,7 @@
   "SpacesAftertabs": false,
   "NoColor": false,
   "Exclude": [
-    "vendor", "generated", ".*\.pb\.go"
+    ".*\.pb\.go", ".*_pb.*\.py", ".*\.pb\.h", ".*\.pb\.c"
   ],
   "AllowedContentTypes": [],
   "PassedFiles": [],

@@ -1,11 +1,11 @@
-# template-proto
+# Template Proto
 
 [![CI](https://github.com/arhat-dev/template-proto/workflows/CI/badge.svg)](https://github.com/arhat-dev/template-proto/actions?query=workflow%3ACI)
 [![PkgGoDev](https://pkg.go.dev/badge/arhat.dev/template-proto)](https://pkg.go.dev/arhat.dev/template-proto)
 [![GoReportCard](https://goreportcard.com/badge/arhat.dev/template-proto)](https://goreportcard.com/report/arhat.dev/template-proto)
 [![codecov](https://codecov.io/gh/arhat-dev/template-proto/branch/master/graph/badge.svg)](https://codecov.io/gh/arhat-dev/template-proto)
 
-Template protocol repo
+Template repo for protocol messages
 
 ## Workflow
 

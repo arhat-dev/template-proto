@@ -1,4 +1,8 @@
-exclude: .*.pb.c
+exclude: |
+  (?x)^(
+    .*_pb.*.py|
+    .*.pb.c
+  )$
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
   rev: v2.5.0
