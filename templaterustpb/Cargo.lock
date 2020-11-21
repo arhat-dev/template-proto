@@ -61,9 +61,9 @@ checksum = "aa7087f49d294270db4e1928fc110c976cd4b9e5a16348e0a1df09afa99e6c98"
 
 [[package]]
 name = "pb-jelly-gen"
-version = "0.0.4"
+version = "0.0.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9136be761641456831f87650dbaa481675cad7c7d99f51920759008d16fd5308"
+checksum = "0756dbbb2d9212cba9325957e95663ba13fa979857ac027c574197577a3e4d16"
 dependencies = [
  "include_dir",
  "tempfile",

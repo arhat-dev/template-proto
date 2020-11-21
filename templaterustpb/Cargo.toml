@@ -10,4 +10,4 @@ name = "proto"
 path = "./"
 
 [dependencies]
-pb-jelly-gen = "0.0.4"
+pb-jelly-gen = "0.0.5"
