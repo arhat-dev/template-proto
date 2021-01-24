@@ -33,7 +33,7 @@ jobs:
     - name: Install pipenv
       uses: dschep/install-pipenv-action@v1
       with:
-        version: "2020.8.13" # yamllint disable-line rule:quoted-strings
+        version: "2020.11.15" # yamllint disable-line rule:quoted-strings
 
     - name: Install rust stable
       uses: actions-rs/toolchain@v1
@@ -50,7 +50,7 @@ jobs:
     - name: Install Protoc
       uses: arduino/setup-protoc@v1
       with:
-        version: "3.13.0" # yamllint disable-line rule:quoted-strings
+        version: "3.14.0" # yamllint disable-line rule:quoted-strings
 
     - name: Ensure tidy gomod
       run: |

@@ -51,8 +51,8 @@ _install_tools_go() {
   _download_go_pakage github.com/gogo/protobuf/proto
   _download_go_pakage github.com/gogo/protobuf/gogoproto
 
-  _install_go_bin "github.com/golang/protobuf@v1.4.2" "./protoc-gen-go" "${GOPATH}/bin/protoc-gen-go"
-  _install_go_bin "github.com/gogo/protobuf@v1.3.1" "./protoc-gen-gogoslick" "${GOPATH}/bin/protoc-gen-gogoslick"
+  _install_go_bin "github.com/golang/protobuf@v1.4.3" "./protoc-gen-go" "${GOPATH}/bin/protoc-gen-go"
+  _install_go_bin "github.com/gogo/protobuf@v1.3.2" "./protoc-gen-gogoslick" "${GOPATH}/bin/protoc-gen-gogoslick"
   cd -
 }
 
@@ -69,7 +69,7 @@ _install_tools_c() {
   _install_tools_python
 
   if [ ! -d build/nanopb ]; then
-    git clone --depth 1 -b 0.4.2 https://github.com/nanopb/nanopb.git build/nanopb
+    git clone --depth 1 -b 0.4.4 https://github.com/nanopb/nanopb.git build/nanopb
   fi
 }
 
